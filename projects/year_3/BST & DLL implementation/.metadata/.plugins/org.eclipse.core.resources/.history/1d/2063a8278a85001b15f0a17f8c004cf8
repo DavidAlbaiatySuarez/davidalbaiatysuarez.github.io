@@ -1,0 +1,100 @@
+package DynamicSet;
+
+class NodeDLL { 
+    
+	NodeDLL previousNode, nextNode;
+	int key; 
+	
+    public NodeDLL(int value){ 
+        this.key = value; 
+        this.previousNode = null;
+        this.nextNode = null; 
+    } 
+}
+
+public class DLL {
+	
+	/** head field initialized to null */
+	private NodeDLL head = null;
+	/** tail field initialized to null */
+	private NodeDLL tail = null;
+	
+	
+	/**
+	 * Inserts a new node z into an appropriate position in doubly linked list s
+	 * @param s (doubly linked list)
+	 * @param z (element of type int)
+	 */
+	public void add(DLL s, int z) {
+		
+		NodeDLL tempNode = new NodeDLL(z);
+		
+		// If we have an empty list
+		if(head == null) {
+			head = tempNode;
+			tail = tempNode;
+			tail.nextNode = null;
+		}else {
+			tail.nextNode = tempNode;
+			tempNode.previousNode = tail;
+			tail = tempNode;
+			tail.nextNode = null;
+		}
+		
+	}
+	
+	/**
+	 * Removes a given node from the Doubly Linked List (based on the implementation from lecture)
+	 * O(1) - performed in constant time - since we do not need to traverse the doubly linked list
+	 * @param s (doubly linked list)
+	 * @param z (element of type int)
+	 */
+	public void remove(DLL s, int z) {
+		// Node we wish to remove from the DLL
+		NodeDLL nodeToRemove = new NodeDLL(z);
+		if(head == nodeToRemove) head = nodeToRemove.nextNode;
+		// Case where we do not have the first node
+		else if(nodeToRemove.previousNode != null) nodeToRemove.previousNode.nextNode = nodeToRemove.nextNode;
+		// Case where we do not have the last node
+		else if(nodeToRemove.nextNode != null) nodeToRemove.nextNode.previousNode = nodeToRemove.previousNode;
+		// Else we must have that either head or nodeToRemove are null (we just exit the method)
+		else return;
+	}
+	
+	
+	
+	public void print() {
+		NodeDLL current = head;
+		
+		if (head == null) System.out.println("DLL empty");
+		else {
+			while (current != null) {
+				System.out.println(current.key);
+				current = current.nextNode;
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		DLL list1 = new DLL();
+		list1.add(list1, 10);
+		list1.add(list1, 20);
+		list1.add(list1, 30);
+		list1.add(list1, 40);
+		list1.add(list1, 50);
+		
+		list1.print();
+		
+		list1.remove(list1, 10);
+		
+	}
+	
+	
+	
+}
+
+
+
+
+
+

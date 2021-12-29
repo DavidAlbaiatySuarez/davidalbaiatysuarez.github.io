@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\OOSE 2 ASSESSED EXERCISE 2\.metadata\.plugins\org.eclipse.jdt.core
+3084237784.index
+1289320443.index
+1268432470.index

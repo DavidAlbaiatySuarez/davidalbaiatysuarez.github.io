@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<!-- <span class="icon fa-gem"></span> -->
+							<span class="fa-solid fa-laptop"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>David Al Baiaty Suarez</h1>
+								<h3> Computer scientist student </h3>
+								<p>Imagination is more important than knowledge.  For knowledge is limited, 
+								   whereas imagination embraces the entire world, stimulating progress, 
+								   giving birth to evolution.</p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#python_projects"><strong>Python</strong></a></li>
+								<li><a href="#c_projects"><strong>C & C++</strong></a></li>
+								<li><a href="#java_projects"><strong>Java</strong></a></li>
+								<li><a href="#html_css_projects"><strong>HTML,CSS</strong></a></li>
+								<!--<li><a href="#elements">Elements</a></li>-->
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Python Projects -->
+							<article id="python_projects">
+								<h2 class="major">Python Projects</h2>
+								<!-- Projects -->
+								<ul>
+								<li>
+								<h4> Amazon similarity algorithm in python </h4>
+								<p>This algorithm is similar to the real-world similarity algorithm
+								used by Amazon but more simplistic and with fewer number of users: my primary
+								aim with this project was not to produce an efficient program but rather a functional
+								piece of code to practice all the python concepts learnt throughout the year.
+							    </p>
+								<p>To put it simple, we have a finite number of books and each user has a score for each of
+								books (0 if the book was not read) as a vector. If the user IS NOT in ratings.txt, we will ask the 
+								new user to rate 5 different books giving us a new similarity algorithm.</p>
+								<p>
+								Using the dot product, we will then calculate the similarity of all users to one specific user and 
+								give them x number of recommendations. The higher (non-negative) score, the similar the users are.
+								We output the result to a .txt file.</p>
+								
+								<a href="projects/year_1/Amazon similarity algorithm.zip" download> Download 'Amazon Similarity Algorithm' </a>
+								</li>
+								
+								<br />
+								
+								<li>
+								<h4> Fully functional server & client in python </h4>
+								<p> This is a fully functional server & client code in python. It was thoroughly tested to ensure that it 
+								worked for a variety of file types as well as images. A test kit is provided as a separate folder. Server & client
+								code in two different folders so that it can be tested locally.
+								</p>
+								
+								<a href="projects/year_2/Server & Client project.zip" download> Download 'Server & Client project' </a>
+								</li>
+								
+								<br />
+								
+								<li>
+								<h4> Interview questions from a wide variety of companies and increasing difficulty </h4>
+								<p> The following files contains a variety of interview questions that were previously asked by big companies such as 
+								Amazon and Twitter. They range in difficulty and each .py file contains a detail description of the task at hand as well
+								as a fully commented solution(s)</p>
+								
+								<a href="projects/python_interview_questions.zip" download> Download 'Interview questions' </a>
+								
+								</li>
+								
+								<br />
+								
+								<li>
+								<h4> Real-time currency converter </h4>
+								<p> This is a real-time worldwide currency converter which parses a publicly available API coupled with a 'smart hack'
+								that allows the user to convert to and from all possible currencies.</p>
+								
+								<a href="projects/real_time_currency_converter.zip" download> Download 'Real-time currency converter' </a>
+								
+								</li>
+								
+								<br />
+								
+								<li>
+								<h4> Miscellaneous python mini-programs </h4>
+								<p> This is a collection of python programs coded throughout the many years that I have been actively using
+								python. All these programs were coded for practice purposes as well as to put new knowledge to test. (Some may
+								seem like very basic now, but they were not 6+ years ago).</p>
+								
+								<a href="projects/miscellaneous python mini-programs.zip" download> Download 'Real-time currency converter' </a>
+								
+								</li>
+								
+								</ul>
+							</article>
+
+						<!-- C & C++ projects -->
+							<article id="c_projects">
+								<h2 class="major">C & C++ Projects</h2>
+								<!-- Projects -->
+								<ul>
+								<li>
+								<h4> Memory save website monitoring </h4>
+								<p>Given a start date, an end date, and one or more log files, the program is to 
+								determine the percentage of access from each TLD during that period, outputting the 
+								final percentages on standard output. This program is meant to be run in a Linux distribution (i.e.: Ubuntu)
+							    </p>
+								<p>For this project, we required more than just a functional solution; more precisely, we had to check for 
+								memory leaks using the clang sanitizers (address, memory and leaks). Thus, the solution provided works as intended, is
+								well-structured and commented and contains no memory leaks. Note, a 'make' file is provided.</p>
+								
+								<a href="projects/year_3/web_monitoring.zip" download> Download 'Web monitoring code' </a>
+								
+								</li>
+								
+								<br />
+								
+								<li>
+								<h4> Concurrent Dependency Discoverer in C++ </h4>
+								<p> The aim of this project was to implement a safe, multithreaded dependency discoverer program
+								in C++. We want a program that can crawl over source files, keeping track of any #include directives,
+								go through files specified in #include directives, and finally generate the correct dependency specifications.
+								</p>
+								<p> Since we are using threads, we need to make sure that multiple threads cannot access common, critical variables at the 
+								same time, to prevent deadlocks and the program from crashing/malfunctioning. This program is meant to be run in a Linux 
+								distribution (i.e.: Ubuntu). Note, a 'make' file is provided.</p>
+								
+								<a href="projects/year_3/concurrent_dependency_discoverer.zip" download> Download 'Concurrent Dependency Discoverer' </a>
+								
+								</li>
+								
+								</ul>
+							</article>
+
+						<!-- Java Projects -->
+							<article id="java_projects">
+								<h2 class="major">Java Projects</h2>
+								<!-- Projects -->
+								<ul>
+								<li>
+								<h4> Comparison sorting algorithms implementation & analysis </h4>
+								<p> The following folder contains the implementation in Java of the following comparison sorting algorithms: insertion sort,
+								merge sort, basic quicksort, quicksort with insertion sort, quicksort with median of 3 partition, 3-way quicksort. All the classes
+								are fully commented and coded according to popular software engineering practices. Methods contain an appropriate description of their 
+								time complexities.
+							    </p>
+								<p> Moreover a thorough analysis is provided in which we compare all the aforementioned implementations to a handful of files, taking 
+								into consideration running times and drawing the necessary conclusions.</p>
+								<p> I recommend viewing the project using Eclipse but I have also provided a link to all the individual .java files used in this project (use second
+								download link).</p>
+								
+								<a href="projects/year_3/comparison_sorting_algorithms.zip" download> Download 'Comparison sorting algorithms implementation & analysis (Eclipse project)' </a>
+								<br />
+								<a href="projects/year_3/Comparison sorting algorithms.zip" download> Download 'Comparison sorting algorithms implementation & analysis (individual classes)' </a>
+								
+								</li>
+								
+								<br />
+								
+								<li>
+								<h4> Binary search tree & Doubly linked list implementation (with set-theoretical operations) </h4>
+								<p> The following folder contains a Java implementation of a binary search tree and a doubly linked list with a wide set of additional
+								set-theoretical operations. All the classes are fully commented and coded according to popular software engineering practices. Methods contain an 
+								appropriate description of their time complexities.
+								</p>
+								<p> I recommend viewing the project using Eclipse but I have also provided a link to all the individual .java files used in this project (use second
+								download link).</p>
+								
+								<a href="projects/year_3/BST & DLL implementation.zip" download> Download 'BST & DLL implementation (Eclipse project)' </a>
+								<br />
+								<a href="projects/year_3/DynamicSet.zip" download> Download 'BST & DLL Eclipse implementation (individual classes)' </a>
+								
+								</li>
+								
+								<br />
+								
+								<li>
+								<h4> Useless control flow detector </h4>
+								<p> The aim of this project was to detect useless control flow in IF, WHILE, DO...WHILE, FOR loops and SWITCH cases. For the IF statements,
+								we also check if the ELSE statement is useless. Similarly, for the SWITCH control structure, we check every individual switch case AND the 
+								default 'case' - these additional checkings are certainly an improvement on most control flow detector programs. All methods are well-commented and were 
+								coded according to well-stablished software engineering practices. 
+								</p>
+								<p> I recommend viewing the project using Eclipse but I have also provided a link to all the individual .java files used in this project (use second
+								download link).</p>
+								
+								<a href="projects/year_2/Useless control flow detector.zip" download> Download 'Useless control flow detector (Eclipse project)' </a>
+								<br />
+								<a href="projects/year_2/detectors.zip" download> Download 'Useless control flow detector (individual classes)' </a>
+								
+								</li>
+								
+								<br />
+								
+								<li>
+								<h4> Compression ratio - Huffman & LZW encoding (Efficient) </h4>
+								<p> The aim of this project was to calculate the compression ratio for the Huffman and the LZW encoding (straightforward) in the most efficient way
+								possible (challenging) without producing an actual compressed file (we just want the compression ratio). This was challenging since I had to think 'outside the box'
+								to deliver a very efficient program. All efficiency steps taken are fully explained as comments on each .java file.
+								</p>
+								
+								<a href="projects/year_3/Compression ratio for Huffman and LZW encoding.zip" download> Download 'Compression ratio - Huffman & LZW encoding' </a>
+								
+								</li>
+								
+								</ul>
+							</article>
+
+						<!-- HTML, CSS projects -->
+							<article id="html_css_projects">
+								<h2 class="major">HTML,CSS ... (web development projects)</h2>
+								<!-- Projects -->
+								<ul>
+								<li>
+								<h4> ReadingTime (website creation year 2 final project) </h4>
+								<p> For our final second year project, we were tasked to create a functional website using Django and all technologies learned
+								over the past two years (i.e.: Python, HTML, CSS, AJAX, XML ...). To make things more challenging, we only had 3 weeks to work
+								on it, so clearly the website is quite simple albeit functional and well-designed. For instance, users can log in and participate 
+								on the polls.
+							    </p>
+								<p> I have provided both the source code (first link) and also a link to the website to be accessed through PythonAnywhere. Note that
+								servers are quite slow (since they are free), so it may take up to 20s to load the page.</p>
+								
+								<a href="projects/year_2/readingTime.zip" download> Download 'Web monitoring code' </a>
+								<br />
+								<a href="http://team5d.pythonanywhere.com/" > Link to 'ReadingTime' website </a>
+								
+								</li>
+								
+								</ul>
+							
+							</article>
+					</div> 
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; David Al Baiaty Suarez</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

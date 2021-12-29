@@ -1,0 +1,136 @@
+package detectors;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import com.github.javaparser.JavaParser;
+import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.Node;
+import com.github.javaparser.ast.NodeList;
+import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
+import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.body.TypeDeclaration;
+import com.github.javaparser.ast.comments.Comment;
+import com.github.javaparser.ast.expr.BinaryExpr;
+import com.github.javaparser.ast.nodeTypes.NodeWithOptionalBlockStmt;
+import com.github.javaparser.ast.stmt.DoStmt;
+import com.github.javaparser.ast.stmt.ExpressionStmt;
+import com.github.javaparser.ast.stmt.ForStmt;
+import com.github.javaparser.ast.stmt.IfStmt;
+import com.github.javaparser.ast.stmt.Statement;
+import com.github.javaparser.ast.stmt.SwitchEntry;
+import com.github.javaparser.ast.stmt.SwitchStmt;
+import com.github.javaparser.ast.stmt.WhileStmt;
+import com.github.javaparser.ast.visitor.ModifierVisitor;
+import com.github.javaparser.ast.visitor.Visitable;
+import com.github.javaparser.ast.visitor.VoidVisitor;
+import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
+
+public class UselessControlFlowDetector extends VoidVisitorAdapter <List<String>> {
+	
+	/*
+	@Override
+	public void visit(ClassOrInterfaceDeclaration c, List<String> collectorClassNames) {
+		super.visit(c, collectorClassNames);
+		
+		String className = c.getName().asString();
+		
+		collectorClassNames.add(className+"|");
+		
+	}
+	*/
+	
+	@Override
+	public void visit(MethodDeclaration md, List<String> collector) {
+		super.visit(md, collector);
+		
+		
+		md.findAll(Statement.class).forEach(statement ->{
+			
+			if(statement.isIfStmt()) {
+				
+				//System.out.println(statement.asIfStmt().hasCascadingIfStmt());
+				int b = statement.asIfStmt().getElseStmt().get().getBegin().get().line;
+				int a = statement.asIfStmt().getElseStmt().get().getEnd().get().line;
+				//System.out.println(statement.asIfStmt().getElseStmt().get().isEmptyStmt());
+				//System.out.println(statement.asIfStmt().getElseStmt());
+				
+				System.out.println();
+				//System.out.println(statement.asIfStmt().getElseStmt());
+				//System.out.println(statement.asIfStmt().getElseStmt().isEmpty());
+				
+				int begin = statement.asIfStmt().getThenStmt().getRange().get().begin.line;
+				int end = statement.asIfStmt().getThenStmt().getRange().get().end.line;
+				
+				String statement1 = statement.asIfStmt().clone().getThenStmt().toString();
+				int indexStart = statement1.indexOf('{');
+				int indexEnd = statement1.indexOf('}');
+				
+				if (statement1.substring(indexStart+1, indexEnd).isBlank()) {
+					collector.add(md.getNameAsString() + "," + begin + "," + end);
+				}
+				
+				String stmt = statement.asIfStmt().clone().getElseStmt().toString();
+				int index3 = stmt.indexOf('{');
+				int index4 = stmt.indexOf('}');
+		
+				// TODO Else case
+				/*
+				String statement2 = statement.asIfStmt().clone().getElseStmt().toString();
+				System.out.println(statement2);
+				
+				int index3 = statement2.indexOf('{');
+				int index4 = statement2.indexOf('}');
+				System.out.println(statement2.substring(index3+1, index4).isBlank());
+				if (statement2.substring(index3+1, index4).isBlank()) {
+					System.out.println(begin + "," + end);
+				}
+				*/
+				
+			
+			}else if(statement.isForStmt() || statement.isWhileStmt() || statement.isDoStmt()) {
+				
+				int begin = statement.getRange().get().begin.line;
+				int end = statement.getRange().get().end.line;
+				
+				// String with spaces and new lines replaced 
+				String a = statement.clone().toString().replaceAll(" ", "");
+				// Index containing { (beginning of code block)
+				int indexStart = a.indexOf("{");
+				// Index containing } (end of code block)
+				int indexEnd = a.indexOf("}");
+				// If the substring is empty (no code in between) then we have a useless control flow
+				if (a.substring(indexStart+1, indexEnd).isBlank()){
+					collector.add(md.getNameAsString() + "," + begin + "," + end + "," + "IS BLANK");
+				}
+				
+			}else if(statement.isSwitchStmt()) {
+				int begin, end;
+				
+				NodeList<SwitchEntry> statementNodeList = statement.asSwitchStmt().getEntries();
+				
+				for(int i=0; i<statementNodeList.size();i++){
+					// Returns true is the entry contains useless code (i.e.: comments or is empty)
+					boolean isEntryEmpty = statement.asSwitchStmt().getEntry(i).isEmpty();
+					
+					if (isEntryEmpty) {
+						begin = statement.asSwitchStmt().getEntry(i).getRange().get().begin.line;
+						
+						/** IF true, then we have reached the last entry (default) so get the endline of the WHOLE switch minus 1
+						 *  ELSE we get the startline of the next entry 
+						 *       minus 1 to get the last line belonging to the previous entry
+						 **/
+						if(statementNodeList.size() == i+1) end = statement.asSwitchStmt().getRange().get().end.line -1;
+						else end = statement.asSwitchStmt().getEntry(i+1).getRange().get().begin.line -1;
+						
+						collector.add(md.getNameAsString() + "," + begin + "," + end);
+					}
+				}
+				
+			}
+		});	
+	}
+}

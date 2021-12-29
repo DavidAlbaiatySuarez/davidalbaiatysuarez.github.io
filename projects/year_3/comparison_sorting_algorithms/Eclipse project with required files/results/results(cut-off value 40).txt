@@ -1,0 +1,48 @@
+Time (ms) taken to sort (average of 100 runs) int10.txt:
+Quicksort: 0
+Quicksort (with insertion sort): 0
+Quicksort (with median of three): 0
+3-way partion Quicksort: 0
+-------------------------------------------
+Time (ms) taken to sort (average of 100 runs) int1000.txt:
+Quicksort: 0
+Quicksort (with insertion sort): 0
+Quicksort (with median of three): 0
+3-way partion Quicksort: 0
+-------------------------------------------
+Time (ms) taken to sort (average of 100 runs) int50.txt:
+Quicksort: 0
+Quicksort (with insertion sort): 0
+Quicksort (with median of three): 0
+3-way partion Quicksort: 0
+-------------------------------------------
+Time (ms) taken to sort (average of 100 runs) int100.txt:
+Quicksort: 0
+Quicksort (with insertion sort): 0
+Quicksort (with median of three): 0
+3-way partion Quicksort: 0
+-------------------------------------------
+Time (ms) taken to sort (average of 100 runs) intBig.txt:
+Quicksort: 86
+Quicksort (with insertion sort): 80
+Quicksort (with median of three): 87
+3-way partion Quicksort: 98
+-------------------------------------------
+Time (ms) taken to sort (average of 100 runs) int500k.txt:
+Quicksort: 40
+Quicksort (with insertion sort): 38
+Quicksort (with median of three): 42
+3-way partion Quicksort: 48
+-------------------------------------------
+Time (ms) taken to sort (average of 100 runs) int20k.txt:
+Quicksort: 1
+Quicksort (with insertion sort): 1
+Quicksort (with median of three): 1
+3-way partion Quicksort: 1
+-------------------------------------------
+Time (ms) taken to sort (average of 100 runs) dutch.txt:
+Quicksort: 295
+Quicksort (with insertion sort): 498
+Quicksort (with median of three): 296
+3-way partion Quicksort: 26
+-------------------------------------------

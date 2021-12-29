@@ -1,0 +1,23 @@
+package detectors;
+
+public class Breakpoints {
+	
+	private String className;
+	private String methodName;
+	private String startline;
+	private String endline;
+	
+	
+	public Breakpoints(String className, String methodName, String startline, String endline) {
+		this.className = className;
+		this.methodName = methodName;
+		this.startline = startline;
+		this.endline = endline;
+	}
+	
+	@Override
+	public String toString() {
+		return "CLASSNAME" + ", " + methodName + ", " + startline + ", " + endline;
+	}
+
+}

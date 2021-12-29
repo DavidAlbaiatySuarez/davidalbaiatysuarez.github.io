@@ -1,0 +1,116 @@
+package DynamicSet;
+
+import java.util.Arrays;
+
+/**
+ * DynamicSet class from where to run the DLL and BST implementations for our Dynamic Set
+ * 
+ * @author 2474364A
+ *
+ */
+public class DynamicSet {
+	
+	private static final void DLLExample() {
+		// Initialize two doubly linked lists
+		DLL dll1 = new DLL();
+		DLL dll2 = new DLL();
+		
+		dll1.add(10);
+		dll1.add(50);
+		dll1.add(30);
+		dll1.add(20);
+		dll1.add(10); // value ignored since we do not allow duplicates
+		dll1.remove(10);
+		dll1.remove(30);
+		System.out.println("DLL 1: ");
+		dll1.print(); // Expected result: 50,20
+				
+		dll2.add(20);
+		dll2.add(70);
+		dll2.add(50);
+		dll2.add(5);
+		dll2.remove(5); // Element 5 no longer in the DLL
+		dll2.add(100);
+		dll2.add(45);
+		System.out.println("DLL 2: ");
+		dll2.print(); // Expected result: 20, 70, 50, 100, 45
+		
+		
+		DLL temp = DLL.union(dll1, dll2); 
+		System.out.println("Union of the two sets: ");
+		temp.print(); // Expected result: 50 20 70 100 45 
+		System.out.println("Intersection of the two sets: ");
+		temp = DLL.intersection(dll1, dll2);
+		temp.print(); // Expected result: 50 20
+		System.out.println("Difference of the two sets: ");
+		temp = DLL.difference(dll1, dll2);
+		temp.print(); // Expected result: no output
+		System.out.println("Is DLL1 subset of DLL2: ");
+		System.out.println(DLL.subset(dll2, dll1)); // Expected result: true
+	}
+
+	private static final void BSTExample() {
+		BST t = new BST();
+		
+		t.add(12);
+        //t.add(4); 
+        //t.add(6); 
+        t.add(30);
+        //t.add(4);
+        t.remove(12);
+        
+        int[] array = new int[t.setSize()];
+        System.out.println(Arrays.toString(t.inOrderArrayTraversal(array)));
+        t.remove(12);
+        int[] array1 = new int[t.setSize()];
+        System.out.println(Arrays.toString(t.inOrderArrayTraversal(array1)));
+        
+        BST s = new BST();
+        s.add(50);
+        s.add(30);
+        s.add(20);
+        s.add(40);
+        s.add(70);
+        s.add(60);
+        s.add(12);
+        
+        array = new int[s.setSize()];
+        System.out.println(Arrays.toString(s.inOrderArrayTraversal(array)));
+        System.out.println();
+        
+        BST.union(t, s);
+        System.out.println();
+        BST.intersection(t, s);
+        System.out.println();
+        BST.difference(s, t);
+        System.out.println();
+        System.out.println(BST.subset(t,s));
+        System.out.println();
+	}
+	
+	
+	public static void main(String[] args) {
+		/* Examples of possible method calls for both DLL and BST:
+		 * .add(int key)
+		 * .remove(int key)
+		 * .isElement(int key)
+		 * .setEmpty()
+		 * .setSize()
+		 * 
+		 * Static method calls (this example refers to DLL):
+		 * DLL.union(S, T) - returns a DLL 
+		 * DLL.intersection(S, T) - returns a DLL
+		 * DLL.difference(S, T) - returns a DLL
+		 * DLL.subset(S, T)
+		 * 
+		 */
+		
+		// DLL example
+		//DynamicSet.DLLExample();
+		
+		// BST example
+		DynamicSet.BSTExample();
+
+	}
+
+}
